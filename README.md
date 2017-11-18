@@ -5,12 +5,24 @@ Combines concepts from:
 * https://github.com/tc39/proposal-optional-chaining
 * https://github.com/tc39/proposal-object-rest-spread
 
-JavaScript should support spreading objects that may be `null` or `undefined` with an optional spread operation, e.g., `...?`:
+JavaScript should support spreading objects that may be `null` or `undefined` with an optional spread operation, e.g., `...?` or `?...`:
 
 ```js
 const foo = options => ({
   myDefault: true,
   ...?options
+})
+
+foo()
+foo({ myDefault: false })
+```
+
+or:
+
+```js
+const foo = options => ({
+  myDefault: true,
+  ?...options
 })
 
 foo()
