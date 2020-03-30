@@ -6,12 +6,12 @@ Combines concepts from:
 * https://github.com/tc39/proposal-optional-chaining
 * https://github.com/tc39-transfer/proposal-nullish-coalescing
 
-Just like for objects, JavaScript could support spreading arrays that may be `null` or `undefined` with an optional spread operation, e.g., `...?` or  `...token?` or `?...`:
+Just like for objects, JavaScript could support spreading arrays that may be `null` or `undefined` with an optional spread operation, e.g., `...token?` or `...?token`  or `?...token`:
 
 ```js
 const foo = more => [
   'one',
-  ...?more
+  ...more?
 ]
 
 foo()
@@ -26,7 +26,7 @@ or:
 ```js
 const foo = more => [
   'one',
-  ?...more
+  ...?more
 ]
 ```
 
@@ -35,7 +35,7 @@ or:
 ```js
 const foo = more => [
   'one',
-  ...more?
+  ?...more
 ]
 ```
 
