@@ -26,7 +26,7 @@ or:
 ```js
 const foo = more => [
   'one',
-  ...?more
+  ?...more
 ]
 ```
 
