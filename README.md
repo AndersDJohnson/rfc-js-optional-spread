@@ -1,43 +1,49 @@
 # rfc-js-spread-optional
-A proposal for JS spread operator on optional values.
+A proposal for JS spread operator on optional array values.
 
 Combines concepts from:
 * https://github.com/tc39/proposal-object-rest-spread
 * https://github.com/tc39/proposal-optional-chaining
 * https://github.com/tc39-transfer/proposal-nullish-coalescing
 
-JavaScript should support spreading objects that may be `null` or `undefined` with an optional spread operation, e.g., `...?` or `?...`:
+Just like for objects, JavaScript could support spreading arrays that may be `null` or `undefined` with an optional spread operation, e.g., `...?` or  `...token?` or `?...`:
 
 ```js
-const foo = options => ({
-  myDefault: true,
-  ...?options
-})
+const foo = more => [
+  'one',
+  ...?more
+]
 
 foo()
-foo({ myDefault: false })
+// yields `['one']`
+
+foo(['two'])
+// yields `['one', 'two']`
 ```
 
 or:
 
 ```js
-const foo = options => ({
-  myDefault: true,
-  ?...options
-})
+const foo = more => [
+  'one',
+  ...?more
+]
+```
 
-foo()
-foo({ myDefault: false })
+or:
+
+```js
+const foo = more => [
+  'one',
+  ...more?
+]
 ```
 
 Equivalent to:
 
 ```js
-const foo = options => ({
-  myDefault: true,
-  ...(options == null ? {} : options)
-})
-
-foo()
-foo({ myDefault: false })
+const foo = more => [
+  'one',
+  ...(more == null ? [] : more)
+]
 ```
