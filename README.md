@@ -1,4 +1,4 @@
-# rfc-js-spread-optional
+# rfc-js-optional-spread
 A proposal for JS spread operator on optional array values.
 
 Combines concepts from:
